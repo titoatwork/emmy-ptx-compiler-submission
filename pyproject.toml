@@ -1,0 +1,15 @@
+[project]
+name = "emmy-ptx"
+version = "1.0.0"
+description = "Kernel IR to PTX compiler backend for Emmy"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.12"
+dependencies = ["emmy-ml==0.3.11"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E9", "F63", "F7", "F82"]

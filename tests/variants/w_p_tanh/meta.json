@@ -1,0 +1,53 @@
+{
+ "id": "w_p_tanh",
+ "code": "torch.tanh(torch.randn(1024))",
+ "rtol": 1e-05,
+ "atol": 1e-06,
+ "graph_inputs": [
+  "x"
+ ],
+ "graph_outputs": [
+  "tanh"
+ ],
+ "kernels": [
+  {
+   "node": "tanh",
+   "entry": "k_tanh_pointwise",
+   "arg_order": [
+    "x",
+    "tanh"
+   ],
+   "grid": [
+    2,
+    1,
+    1
+   ],
+   "block": [
+    256,
+    1,
+    1
+   ],
+   "smem_bytes": 0,
+   "zero_outputs": [],
+   "args": [
+    {
+     "name": "x",
+     "dtype": "f32",
+     "shape": [
+      1024
+     ],
+     "seed": 0
+    },
+    {
+     "name": "tanh",
+     "dtype": "f32",
+     "shape": [
+      1024
+     ],
+     "output": true
+    }
+   ],
+   "final": true
+  }
+ ]
+}

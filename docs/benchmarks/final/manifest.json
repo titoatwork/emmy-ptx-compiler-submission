@@ -1,0 +1,37 @@
+{
+  "code_revision": "v1.0.0",
+  "verification_date": "2026-10-28",
+  "runner": {
+    "gpu": "NVIDIA RTX 5090",
+    "arch": "sm_120",
+    "shared": true,
+    "clock_states": "two stable states for short kernels; absolute numbers are not portable",
+    "cuda": "12.9"
+  },
+  "local": {
+    "gpu": "NVIDIA RTX 3050 6GB",
+    "cuda": "12.6",
+    "ptxas": "12.6"
+  },
+  "measurement": {
+    "warm": "10 warmup launches, 100 timed iterations per round",
+    "cold": "0 warmup, 1 launch per round",
+    "order": "interleaved A/B, order rotated every round",
+    "warm_rounds": 5,
+    "cold_rounds_small": 10,
+    "cold_rounds_large": 5,
+    "statistic": "median of the per-round values",
+    "noise": "warm: one 32 ns tick; cold: overlapping ranges and medians within 1.5 percent"
+  },
+  "sources": {
+    "S1": "the main matrix (43 shapes in this CSV; h_mm_128 is S3)",
+    "S2": "deep rechecks listed in README.md",
+    "S3": "128x128x128 unroll confirmation"
+  },
+  "commands": {
+    "open_set": "TASK=../task RUNNER_URL=$RUNNER_URL tools/testall.sh",
+    "corpora": "TASK=../task tools/verify.sh --corpora",
+    "note": "The curated CSV is the redistributable evidence. compare.py covers the 15 open-set names by default; pass --problems with package paths for generated and holdout shapes.",
+    "baseline": "the cleanup column is the frozen pre-optimization measurement of this compiler from the same session; the baseline compiler is not part of this release"
+  }
+}

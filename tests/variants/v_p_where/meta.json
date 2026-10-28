@@ -1,0 +1,74 @@
+{
+ "id": "v_p_where",
+ "code": "x = torch.randn(512); y = torch.randn(512); torch.where(x > 0, x, y)",
+ "rtol": 0,
+ "atol": 0,
+ "graph_inputs": [
+  "x",
+  "y"
+ ],
+ "graph_outputs": [
+  "where"
+ ],
+ "kernels": [
+  {
+   "node": "where",
+   "entry": "k_where_pointwise",
+   "arg_order": [
+    "gt_c1",
+    "x",
+    "y",
+    "where"
+   ],
+   "grid": [
+    1,
+    1,
+    1
+   ],
+   "block": [
+    256,
+    1,
+    1
+   ],
+   "smem_bytes": 0,
+   "zero_outputs": [],
+   "args": [
+    {
+     "name": "gt_c1",
+     "dtype": "f32",
+     "shape": [
+      1
+     ],
+     "data": [
+      0.0
+     ]
+    },
+    {
+     "name": "x",
+     "dtype": "f32",
+     "shape": [
+      512
+     ],
+     "seed": 0
+    },
+    {
+     "name": "y",
+     "dtype": "f32",
+     "shape": [
+      512
+     ],
+     "seed": 1
+    },
+    {
+     "name": "where",
+     "dtype": "f32",
+     "shape": [
+      512
+     ],
+     "output": true
+    }
+   ],
+   "final": true
+  }
+ ]
+}

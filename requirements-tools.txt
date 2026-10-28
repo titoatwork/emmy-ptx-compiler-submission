@@ -1,0 +1,4 @@
+-r requirements.txt
+numpy>=1.26
+requests>=2.31
+ruff>=0.6

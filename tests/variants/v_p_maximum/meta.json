@@ -1,0 +1,63 @@
+{
+ "id": "v_p_maximum",
+ "code": "torch.maximum(torch.randn(1000), torch.randn(1000))",
+ "rtol": 0,
+ "atol": 0,
+ "graph_inputs": [
+  "x0",
+  "x1"
+ ],
+ "graph_outputs": [
+  "maximum"
+ ],
+ "kernels": [
+  {
+   "node": "maximum",
+   "entry": "k_maximum_pointwise",
+   "arg_order": [
+    "x0",
+    "x1",
+    "maximum"
+   ],
+   "grid": [
+    2,
+    1,
+    1
+   ],
+   "block": [
+    256,
+    1,
+    1
+   ],
+   "smem_bytes": 0,
+   "zero_outputs": [],
+   "args": [
+    {
+     "name": "x0",
+     "dtype": "f32",
+     "shape": [
+      1000
+     ],
+     "seed": 0
+    },
+    {
+     "name": "x1",
+     "dtype": "f32",
+     "shape": [
+      1000
+     ],
+     "seed": 1
+    },
+    {
+     "name": "maximum",
+     "dtype": "f32",
+     "shape": [
+      1000
+     ],
+     "output": true
+    }
+   ],
+   "final": true
+  }
+ ]
+}

@@ -1,0 +1,17 @@
+#!/bin/bash
+# Run the emmy CLI with a Python that has torch, while importing emmy from the compiler venv.
+# Override EMMY_SITE and TORCH_PYTHON if your layout differs.
+HERE="$(cd "$(dirname "$0")" && pwd)"
+EMMY_SITE="${EMMY_SITE:-$HERE/../../venv/lib/python3.12/site-packages}"
+TORCH_PYTHON="${TORCH_PYTHON:-$HERE/../../venv/bin/python}"
+EMMY_CLI="${EMMY_CLI:-$HERE/../../venv/bin/emmy}"
+if [ ! -x "$TORCH_PYTHON" ]; then
+  echo "emmy-torch: TORCH_PYTHON is not executable: $TORCH_PYTHON" >&2
+  exit 1
+fi
+if [ ! -f "$EMMY_CLI" ]; then
+  echo "emmy-torch: EMMY_CLI does not exist: $EMMY_CLI" >&2
+  exit 1
+fi
+export PYTHONPATH="$EMMY_SITE${PYTHONPATH:+:$PYTHONPATH}"
+exec "$TORCH_PYTHON" "$EMMY_CLI" "$@"

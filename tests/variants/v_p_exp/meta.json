@@ -1,0 +1,53 @@
+{
+ "id": "v_p_exp",
+ "code": "torch.exp(torch.randn(1024))",
+ "rtol": 1e-05,
+ "atol": 1e-06,
+ "graph_inputs": [
+  "x"
+ ],
+ "graph_outputs": [
+  "exp"
+ ],
+ "kernels": [
+  {
+   "node": "exp",
+   "entry": "k_exp_pointwise",
+   "arg_order": [
+    "x",
+    "exp"
+   ],
+   "grid": [
+    2,
+    1,
+    1
+   ],
+   "block": [
+    256,
+    1,
+    1
+   ],
+   "smem_bytes": 0,
+   "zero_outputs": [],
+   "args": [
+    {
+     "name": "x",
+     "dtype": "f32",
+     "shape": [
+      1024
+     ],
+     "seed": 0
+    },
+    {
+     "name": "exp",
+     "dtype": "f32",
+     "shape": [
+      1024
+     ],
+     "output": true
+    }
+   ],
+   "final": true
+  }
+ ]
+}
