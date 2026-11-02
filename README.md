@@ -21,7 +21,7 @@ whole contract.
 IRs, 147/147 local IRs, and 15/15 on the hosted RTX 5090 runner twice. The verified release and
 the exact commands are in [docs/VERIFICATION.md](docs/VERIFICATION.md).
 
-[Video](https://youtu.be/LG_AmfUNFWY)
+[Video](https://youtu.be/LO_Msz4fN30?si=lrwm7nkKW_Ylm__g)
 
 ## What it does
 
